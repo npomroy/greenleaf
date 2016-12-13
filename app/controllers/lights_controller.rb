@@ -24,6 +24,17 @@ class LightsController < ApplicationController
       @light = Light.find(params[:id]) 
    end
    
+   # PUT to /users/:user_id/lights/:id
+   def update
+      @light = Light.find(params[:id])
+      if @light.update_attributes( light_params )
+          flash[:success] = "Light updated"
+          redirect_to user_light_path(user_id: params[:user_id], id: params[:id])
+      else
+          render action: :show
+      end
+   end
+   
    # DELETE to /users/:user_id/lights/:id
    def destroy
       Light.find(params[:id]).destroy
