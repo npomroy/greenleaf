@@ -19,6 +19,12 @@ class LightsController < ApplicationController
       end
    end
    
+   # DELETE to /users/:user_id/lights/:id
+   def destroy
+      Light.find(params[:id]).destroy
+      redirect_to user_plants_path(params[:user_id])
+   end
+   
    # GET to /users/:user_id/lights
    def index
       @user = User.find( params[:user_id] )
