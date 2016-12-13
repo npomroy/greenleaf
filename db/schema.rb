@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213050303) do
+ActiveRecord::Schema.define(version: 20161213082104) do
+
+  create_table "lights", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "light_level"
+    t.integer  "power_usage"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
