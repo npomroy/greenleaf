@@ -13,11 +13,17 @@ class PlantsController < ApplicationController
        @plant.user_id = (current_user.id)
        if @plant.save
            flash[:success] = "Plant created"
-           redirect_to root_path
+           redirect_to user_plants_path(user_id: current_user.id)
        else
            flash[:error] = "Plant creation failed"
            render action: :new
        end
+    end
+    
+    # DELETE to /users/:user_id/plants/:id
+    def destroy
+       Plant.find(params[:id]).destroy
+       redirect_to user_plants_path(user_id: current_user.id)
     end
     
     # GET to /users/:user_id/plants
