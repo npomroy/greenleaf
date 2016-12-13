@@ -20,6 +20,11 @@ class PlantsController < ApplicationController
        end
     end
     
+    # GET /users/:user_id/plants/:id
+    def show
+        @plant = Plant.find(params[:id]) 
+    end
+    
     # DELETE to /users/:user_id/plants/:id
     def destroy
        Plant.find(params[:id]).destroy
