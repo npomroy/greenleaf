@@ -6,4 +6,5 @@ class User < ApplicationRecord
          
   has_one :profile
   has_many :plants
+  has_many :lights
 end
