@@ -11,6 +11,10 @@ class PlantsController < ApplicationController
     def create
        @plant = Plant.new( plant_params )
        @plant.user_id = (current_user.id)
+       @plant.plant_date = DateTime.now
+       @plant.last_turn = DateTime.now
+       @plant.growth_stage = 0
+       @plant.water_level = 5
        if @plant.save
            flash[:success] = "Plant created"
            redirect_to user_plants_path(user_id: current_user.id)
