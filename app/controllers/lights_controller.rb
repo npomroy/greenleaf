@@ -1,4 +1,6 @@
 class LightsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :only_current_user
    # GET to /users/:user_id/lights/:id
    def new
        @light = Light.new
@@ -26,5 +28,10 @@ class LightsController < ApplicationController
    private
         def light_params
            params.require(:light).permit(:name, :user_id, :light_level, :power_usage, :description) 
+        end
+        
+        def only_current_user
+           @user = User.find( params[:user_id] )
+           redirect_to(root_url) unless @user == current_user
         end
 end
