@@ -1,8 +1,13 @@
 <div class="home-callout text-center container-fluid">
-    <h1>Home Page</h1>
+    <h1>Green Leaf</h1>
 </div>
 <div class="container">
     <div class="row">
+        <div class="col-md-4">
+            <div class="well">
+                <%= link_to "New Plant", "new_plant_path", class: "btn btn-primary btn-lg btn-block" %>
+            </div>
+        </div>
         <div class="col-md-4 col-md-offset-4">
             <div class="well">
                 <% if user_signed_in? %>
