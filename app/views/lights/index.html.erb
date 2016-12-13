@@ -1,1 +1,14 @@
-<%= @lights.inspect %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h1 class="text-center">My Lights</h1>
+            <% @lights.each do |light| %>
+                <div class="well row <%= cycle('white-bg', '') %>">
+                    <%= link_to user_light_path(id: light.id) do %>
+                        <h2><%= light.name %></h2>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
