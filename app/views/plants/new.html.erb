@@ -3,6 +3,23 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="well">
                 <h1 class="text-center">New Plant</h1>
+                <%= form_for @plant, url: user_plants_path do |f| %>
+                    <%= hidden_field_tag 'plant_date', DateTime.now %>
+                    <%= hidden_field_tag 'last_turn', DateTime.now %>
+                    <%= hidden_field_tag 'growth_stage', 0 %>
+                    <%= hidden_field_tag 'water_level', 0 %>
+                    <div class="form-group">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :description %>
+                        <%= f.text_area :description, class: "form-control" %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.submit :submit, class: "btn btn-primary" %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>
