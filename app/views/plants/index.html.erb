@@ -1,1 +1,14 @@
-<%= @plants.inspect %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h1 class="text-center">My Plants</h1>
+            <% @plants.each do |plant| %>
+                <div class="well row <%= cycle('white-bg', '') %>">
+                    <%= link_to user_plant_path(id: plant.id) do %>
+                        <h2><%= plant.name %></h2>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

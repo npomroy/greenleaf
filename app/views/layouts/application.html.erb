@@ -26,6 +26,11 @@
           <% end %>
         </div>
         <div class="collapse navbar-collapse" id="main-nav-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <% if user_signed_in? %>
+              <li><%= link_to "My Plants", user_plants_path(user_id: current_user.id) %></li>
+            <% end %>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "About", about_path %></li>
             <% if user_signed_in? %>
