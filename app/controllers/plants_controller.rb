@@ -25,6 +25,17 @@ class PlantsController < ApplicationController
         @plant = Plant.find(params[:id]) 
     end
     
+    # PUT to /users/:user_id/plants/:id
+    def update
+       @plant = Plant.find(params[:id])
+       if @plant.update_attributes( plant_params )
+           flash[:success] = "Plant updated"
+           redirect_to user_plant_path(user_id: params[:user_id], id: params[:id])
+       else
+           render action: :show
+       end
+    end
+    
     # DELETE to /users/:user_id/plants/:id
     def destroy
        Plant.find(params[:id]).destroy
