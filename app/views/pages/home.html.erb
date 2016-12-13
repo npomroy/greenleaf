@@ -7,6 +7,7 @@
             <div class="well">
                 <% if user_signed_in? %>
                     <%= link_to "New Plant", new_user_plant_path(user_id: current_user.id), class: "btn btn-primary btn-lg btn-block" %>
+                    <%= link_to "New Light", new_user_light_path(user_id: current_user.id), class: "btn btn-primary btn-lg btn-block" %>
                 <% end %>
             </div>
         </div>
