@@ -1,4 +1,7 @@
 class PlantsController < ApplicationController
+    before_action :authenticate_user!
+    before_action :only_current_user
+    
     # GET to /users/:user_id/plants/:id
     def new
         @plant = Plant.new
@@ -26,5 +29,10 @@ class PlantsController < ApplicationController
     private
         def plant_params
            params.require(:plant).permit(:name, :user_id, :light_id, :plant_date, :last_turn, :growth_stage, :water_level, :description) 
+        end
+        
+        def only_current_user
+           @user = User.find( params[:user_id] )
+           redirect_to(root_url) unless @user == current_user
         end
 end
