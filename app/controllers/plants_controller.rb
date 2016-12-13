@@ -17,6 +17,12 @@ class PlantsController < ApplicationController
        end
     end
     
+    # GET to /users/:user_id/plants
+    def index
+       @user = User.find( params[:user_id] )
+       @plants = Plant.where("user_id = ?", params[:user_id])
+    end
+    
     private
         def plant_params
            params.require(:plant).permit(:name, :user_id, :light_id, :plant_date, :last_turn, :growth_stage, :water_level, :description) 
