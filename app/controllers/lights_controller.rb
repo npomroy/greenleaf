@@ -17,6 +17,12 @@ class LightsController < ApplicationController
       end
    end
    
+   # GET to /users/:user_id/lights
+   def index
+      @user = User.find( params[:user_id] )
+      @lights = Light.where("user_id = ?", params[:user_id])
+   end
+   
    private
         def light_params
            params.require(:light).permit(:name, :user_id, :light_level, :power_usage, :description) 
