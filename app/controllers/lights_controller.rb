@@ -19,6 +19,11 @@ class LightsController < ApplicationController
       end
    end
    
+   # GET /users/:user_id/lights/:id
+   def show
+      @light = Light.find(params[:id]) 
+   end
+   
    # DELETE to /users/:user_id/lights/:id
    def destroy
       Light.find(params[:id]).destroy

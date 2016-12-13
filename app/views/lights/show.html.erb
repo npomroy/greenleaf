@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="well">
+                <h1 class="text-center"><%= @light.name %></h1>
+                <h3><%= @light.light_level.to_s %></h3>
+                <h3><%= @light.power_usage.to_s %></h3>
+                <p><%= @light.description %></p>
+            </div>
+        </div>
+    </div>
+</div>
