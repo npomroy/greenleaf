@@ -4,16 +4,56 @@
             <% @lights.each do |light| %>
                 <div class="well row">
                     <div class="col-sm-10 col-sm-offset-1">
-                        <%= light.inspect %>
+                        <div class="well row">
+                            <div class="col-sm-4">
+                                <h3>Light level: <%= light.light_level %></h3>
+                                <h3><i class="fa fa-plug"></i>: <%= light.power_usage %></h3>
+                                
+                            </div>
+                            <div class="col-sm-4">
+                                <i class="fa fa-lightbulb-o"></i>
+                                <h1 class="text-center"><%= light.name %></h1>
+                            </div>
+                            <div class="col-sm-4">
+                                <p><%= light.description %></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-4">
-                        <%= @plants[(light.id * 3) - 3].inspect %>
+                        <% if @plants[(light.id * 3) - 3] %>
+                            <h1 class='text-center'><%= @plants[(light.id * 3) - 3].name %></h1>
+                            <h3>Planted On: <%= @plants[(light.id * 3) - 3].plant_date.to_s %></h3>
+                            <h3>Last Turn Date: <%= @plants[(light.id * 3) - 3].last_turn.to_s %></h3>
+                            <h3>Growth stage: <%= @plants[(light.id * 3) - 3].growth_stage.to_s %></h3>
+                            <h3>Water level: <%= @plants[(light.id * 3) - 3].water_level.to_s %></h3>
+                            <h3>User ID: <%= @plants[(light.id * 3) - 3].user_id.to_s %></h3>
+                            <h3>Light ID: <%= @plants[(light.id * 3) - 3].light_id.to_s %></h3>
+                            <p><%= @plants[(light.id * 3) - 3].description %></p>
+                        <% end %>
                     </div>
                     <div class="col-sm-4">
-                        <%= @plants[(light.id * 3) - 2].inspect %>
+                        <% if @plants[(light.id * 3) - 2] %>
+                            <h1 class='text-center'><%= @plants[(light.id * 3) - 2].name %></h1>
+                            <h3>Planted On: <%= @plants[(light.id * 3) - 2].plant_date.to_s %></h3>
+                            <h3>Last Turn Date: <%= @plants[(light.id * 3) - 2].last_turn.to_s %></h3>
+                            <h3>Growth stage: <%= @plants[(light.id * 3) - 2].growth_stage.to_s %></h3>
+                            <h3>Water level: <%= @plants[(light.id * 3) - 2].water_level.to_s %></h3>
+                            <h3>User ID: <%= @plants[(light.id * 3) - 2].user_id.to_s %></h3>
+                            <h3>Light ID: <%= @plants[(light.id * 3) - 2].light_id.to_s %></h3>
+                            <p><%= @plants[(light.id * 3) - 2].description %></p>
+                        <% end %>
                     </div>
                     <div class="col-sm-4">
-                        <%= @plants[(light.id * 3) - 1].inspect %>
+                        <% if @plants[(light.id * 3) - 1] %>
+                            <h1 class='text-center'><%= @plants[(light.id * 3) - 1].name %></h1>
+                            <h3>Planted On: <%= @plants[(light.id * 3) - 1].plant_date.to_s %></h3>
+                            <h3>Last Turn Date: <%= @plants[(light.id * 3) - 1].last_turn.to_s %></h3>
+                            <h3>Growth stage: <%= @plants[(light.id * 3) - 1].growth_stage.to_s %></h3>
+                            <h3>Water level: <%= @plants[(light.id * 3) - 1].water_level.to_s %></h3>
+                            <h3>User ID: <%= @plants[(light.id * 3) - 1].user_id.to_s %></h3>
+                            <h3>Light ID: <%= @plants[(light.id * 3) - 1].light_id.to_s %></h3>
+                            <p><%= @plants[(light.id * 3) - 1].description %></p>
+                        <% end %>
                     </div>
                 </div>
                 
