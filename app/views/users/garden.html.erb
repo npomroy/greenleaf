@@ -1,8 +1,22 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <%= @lights.each do |light| %>
-                <%= light.name %>
+            <% @lights.each do |light| %>
+                <div class="well row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <%= light.inspect %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= @plants[(light.id * 3) - 3].inspect %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= @plants[(light.id * 3) - 2].inspect %>
+                    </div>
+                    <div class="col-sm-4">
+                        <%= @plants[(light.id * 3) - 1].inspect %>
+                    </div>
+                </div>
+                
             <% end %>
         </div>
     </div>
