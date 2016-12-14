@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :plants
     resources :lights
   end
+  get 'garden', to: 'users#garden'
   get 'about', to: 'pages#about'
 end

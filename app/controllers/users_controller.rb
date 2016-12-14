@@ -10,4 +10,11 @@ class UsersController < ApplicationController
     def index
        @users = User.includes(:profile) 
     end
+    
+    # GET /garden
+    def garden
+       @user = current_user
+       @plants = Plant.where("user_id = ?", current_user.id)
+       @lights = Light.where("user_id = ?", current_user.id)
+    end
 end
